@@ -2,39 +2,26 @@
 #ifndef MODULEHEADER
 #define MODULEHEADER
 
-#include <map>
-#include <string>
-#include "Scene.hpp"
+#include <vector>
+#include "Entity.hpp"
 
-namespace julen_engine
+namespace Zynkro
 {
 
+	class Task;
+	class Scene;
 	class Module
 	{
 	private:
-		class Module_Factory
-		{
-		public:
-			Module_Factory();
-			~Module_Factory();
-
-			virtual void create_module();
-		private:
-
-		};
-
-		static std::map<std::string, Module_Factory * > moduleFactory;
-		Scene * scene;
+		
+		std::vector<Entity> entities;
+		std::shared_ptr<Task> task;
 
 	public:
 		Module();
 		~Module();
 
-		static void register_module();
-		virtual void get_task();
-		virtual void create_component();
-
-	private:
+		virtual void AddComponent(std::shared_ptr<Entity> entity);
 	};
 
 	

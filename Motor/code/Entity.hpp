@@ -4,29 +4,24 @@
 
 #include <map>
 #include <string>
-#include "Node.hpp"
-namespace julen_engine
+
+namespace Zynkro
 {
-	//map< id, Component > components
-	//	map< id, Entity    > children
-	//	Transform_Component  transform                          // Este componente existe siempre
-	//	get_component(id)                                       // Busca un componente por id
-	//	get_child(id)
-	//	get_transform()                                         // Retorna el componente transform directamente
+	
 
 	class Component;
 	class Entity
 	{
+
+	private:
+		std::map<std::string, std::shared_ptr<Component>> components;
+		std::map<std::string, std::shared_ptr<Entity>>    children;
+
 	public:
 		Entity();
 		~Entity();
 
-		Component* get_component(std::string);
-		Entity*    get_child(std::string);
-
-	private:
-		std::map<std::string, Component*> components;
-		std::map<std::string, Entity*   > children;
+		void AddComponent(std::string name, std::shared_ptr<Component> _component);
 	};
 
 	

@@ -11,7 +11,7 @@
 //	stop()
 
 
-namespace julen_engine
+namespace Zynkro
 {
 	class Kernel
 	{
@@ -21,7 +21,6 @@ namespace julen_engine
 	public:
 		Kernel();
 		~Kernel();
-		static Kernel & instance();
 
 		void add_task(Task & task);
 		void execute();

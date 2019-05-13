@@ -3,18 +3,23 @@
 #define INPUTTASKHEADER
 
 #include "Task.hpp"
-namespace julen_engine
+
+namespace Zynkro
 {
+	class Kernel;
 	class Input_Task : public Task
 	{
+	private:
+		Kernel * kernel;
 	public:
-		Input_Task();
+		Input_Task(Kernel * _kernel) : Task(nullptr) 
+		{
+			kernel = _kernel;
+		};
 		~Input_Task();
 
-		void initialize();
-		void do_task();
+		void doTask() override;
 
-	private:
 
 	};
 }

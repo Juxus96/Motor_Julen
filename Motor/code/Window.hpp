@@ -4,15 +4,17 @@
 #define SDL_MAIN_HANDLED
 #include "SDL.h"
 #include <string>
+#include "Scene.hpp"
+#include <map>
 
-namespace julen_engine
+namespace Zynkro
 {
 	class Window
 	{
 	private:
 		SDL_Window * window;
 		SDL_GLContext context;
-		
+		std::map<std::string, Scene> scenes;
 
 	public:
 

@@ -2,13 +2,11 @@
 #include "Kernel.hpp"
 
 
-namespace julen_engine 
+namespace Zynkro 
 {
-	Task::Task()
+	Task::Task(std::shared_ptr<Module> _module)
 	{
-	}
-	Task::~Task()
-	{
+		module = _module;
 	}
 }
 

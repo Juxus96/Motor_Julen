@@ -1,6 +1,6 @@
 #include "Module.hpp"
 
-namespace julen_engine 
+namespace Zynkro 
 {
 	Module::Module()
 	{
@@ -9,24 +9,10 @@ namespace julen_engine
 	Module::~Module()
 	{
 	}
-	void Module::register_module()
+	void Module::AddComponent(std::shared_ptr<Entity> entity)
 	{
 	}
-	void Module::get_task()
-	{
-	}
-	void Module::create_component()
-	{
-	}
-	Module::Module_Factory::Module_Factory()
-	{
-	}
-	Module::Module_Factory::~Module_Factory()
-	{
-	}
-	void Module::Module_Factory::create_module()
-	{
-	}
+	
 }
 
 

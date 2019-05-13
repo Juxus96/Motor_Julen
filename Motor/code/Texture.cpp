@@ -1,11 +1,12 @@
 #include "ModelComponent.hpp"
+#include "Texture.hpp"
 
 namespace Zynkro 
 {
-	Component::Component()
+	Texture::Texture()
 	{
 	}
-	Component::~Component()
+	Texture::~Texture()
 	{
 	}
 }

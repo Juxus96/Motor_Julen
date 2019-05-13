@@ -1,23 +1,23 @@
 #include "Entity.hpp"
 #include "Component.hpp"
 
-namespace julen_engine 
+namespace Zynkro 
 {
 	Entity::Entity()
 	{
+
 	}
 
 	Entity::~Entity()
 	{
+
 	}
-	Component * Entity::get_component(std::string id)
+
+	void Entity::AddComponent(std::string name, std::shared_ptr<Component> _component)
 	{
-		return components[id];
+		components[name] = _component;
 	}
-	Entity * Entity::get_child(std::string id)
-	{
-		return children[id];
-	}
+	
 
 }
 

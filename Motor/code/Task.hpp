@@ -1,29 +1,20 @@
 
 #ifndef TASKHEADER
 #define TASKHEADER
-//class Task
-//	priority
-//	Kernel *                                                // Kernel al que se añadió la Task
-//	set_kernel()                                            // Lo llama Kernel::add_task()
-//	virtual initialize()
-//	virtual do_step()
-//	virtual finalize()
-//	operator < (const Task & other)
 
+#include "Module.hpp"
 
-namespace julen_engine
+namespace Zynkro
 {
-
-	class Kernel;
-
 	class Task
 	{
+	private:
+		std::shared_ptr<Module> module;
 	public:
-		Task();
-		~Task();
 
-		virtual void initialize() = 0;
-		virtual void do_task() = 0;
+		Task(std::shared_ptr<Module> module);
+
+		virtual void doTask() = 0;
 
 
 	private:

@@ -1,11 +1,12 @@
 #include "ModelComponent.hpp"
+#include "Mesh.hpp"
 
 namespace Zynkro 
 {
-	Component::Component()
+	Mesh::Mesh()
 	{
 	}
-	Component::~Component()
+	Mesh::~Mesh()
 	{
 	}
 }

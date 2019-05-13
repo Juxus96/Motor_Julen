@@ -2,18 +2,13 @@
 #include "SDL.h"
 #include "Kernel.hpp"
 
-namespace julen_engine
+namespace Zynkro
 {
-	Input_Task::Input_Task()
-	{
-	}
 	Input_Task::~Input_Task()
 	{
+		//delete kernel;                   ----------------------------------------------------- BUG / DUDA
 	}
-	void Input_Task::initialize()
-	{
-	}
-	void Input_Task::do_task()
+	void Input_Task::doTask()
 	{
 		SDL_Event event;
 
@@ -29,7 +24,7 @@ namespace julen_engine
 				{
 				case SDLK_ESCAPE:
 				{
-					Kernel::instance().stop();
+					kernel->stop();
 				}
 				}
 			}

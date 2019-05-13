@@ -126,6 +126,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\code\Component.cpp" />
+    <ClCompile Include="..\code\Material.cpp" />
+    <ClCompile Include="..\code\Mesh.cpp" />
+    <ClCompile Include="..\code\ModelComponent.cpp" />
     <ClCompile Include="..\code\Entity.cpp" />
     <ClCompile Include="..\code\Input_Task.cpp" />
     <ClCompile Include="..\code\Kernel.cpp" />
@@ -133,18 +136,25 @@
     <ClCompile Include="..\code\Module.cpp" />
     <ClCompile Include="..\code\RenderModule.cpp" />
     <ClCompile Include="..\code\Scene.cpp" />
+    <ClCompile Include="..\code\ShaderProgram.cpp" />
     <ClCompile Include="..\code\Task.cpp" />
+    <ClCompile Include="..\code\Texture.cpp" />
     <ClCompile Include="..\code\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\code\Component.hpp" />
+    <ClInclude Include="..\code\Material.hpp" />
+    <ClInclude Include="..\code\Mesh.hpp" />
+    <ClInclude Include="..\code\ModelComponent.hpp" />
     <ClInclude Include="..\code\Entity.hpp" />
     <ClInclude Include="..\code\Input_Task.hpp" />
     <ClInclude Include="..\code\Kernel.hpp" />
     <ClInclude Include="..\code\Module.hpp" />
     <ClInclude Include="..\code\RenderModule.hpp" />
     <ClInclude Include="..\code\Scene.hpp" />
+    <ClInclude Include="..\code\ShaderProgram.hpp" />
     <ClInclude Include="..\code\Task.hpp" />
+    <ClInclude Include="..\code\Texture.hpp" />
     <ClInclude Include="..\code\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

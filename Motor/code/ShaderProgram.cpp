@@ -2,10 +2,10 @@
 
 namespace Zynkro 
 {
-	Component::Component()
+	ShaderProgram::ShaderProgram()
 	{
 	}
-	Component::~Component()
+	ShaderProgram::~ShaderProgram()
 	{
 	}
 }

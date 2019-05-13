@@ -5,28 +5,29 @@
 #include <map>
 #include <string>
 #include "Entity.hpp"
-//class Kernel
-//	set< Task > tasks                                       // El set las ordena por prioridad
-//	add_task()
-//	execute()
-//	stop()
+#include "Kernel.hpp"
+#include "Input_Task.hpp"
 
 
-namespace julen_engine
+
+namespace Zynkro
 {
 	class Module;
 	class Scene
 	{
+	private:
+		Kernel kernel;
+		Input_Task inputTask;
+
+		std::map<std::string, std::shared_ptr<Entity>> entities;
+		std::map<std::string, std::shared_ptr<Module>> modules;
+
 	public:
 		Scene();
-		~Scene();
 
 		void execute();
 
-	private:
-		std::map<std::string, Module*> modules;
-		Entity root;
 	};
 
 }
-#endif
+#endif 

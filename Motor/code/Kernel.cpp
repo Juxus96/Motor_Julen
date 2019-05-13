@@ -1,6 +1,6 @@
 #include "Kernel.hpp"
 
-namespace julen_engine 
+namespace Zynkro 
 {
 	Kernel::Kernel()
 	{
@@ -10,24 +10,19 @@ namespace julen_engine
 	Kernel::~Kernel()
 	{
 	}
-	Kernel & Kernel::instance()
-	{
-		static int i = 0;
-		i++;
-		static Kernel instance;
-		return instance;
-	}
+
 	void Kernel::add_task(Task & task)
 	{
 		tasks.push_back(&task);
 	}
+
 	void Kernel::execute()
 	{
 		while (running)
 		{
 			for(Task* task : tasks)
 			{
-				task->do_task();
+				task->doTask();
 			}			
 		}
 	}
