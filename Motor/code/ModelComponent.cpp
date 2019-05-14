@@ -2,9 +2,9 @@
 
 namespace Zynkro 
 {
-	/*ModelComponent::ModelComponent()
+	ModelComponent::ModelComponent()
 	{
-	}*/
+	}
 	ModelComponent::~ModelComponent()
 	{
 	}

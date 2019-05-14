@@ -12,10 +12,10 @@ namespace Zynkro
 	class Scene;
 	class Module
 	{
-	private:
+	protected:
 		
-		std::vector<Entity> entities;
-		std::shared_ptr<Task> task;
+		std::vector<Component> components;  
+		Task * task;
 
 	public:
 		Module();

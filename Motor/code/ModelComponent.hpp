@@ -12,12 +12,11 @@ namespace Zynkro
 {
 	class ModelComponent : public Component
 	{
-		bool prueba;
 		std::map<std::string, std::shared_ptr<Mesh>>     meshes;
 		std::map<std::string, std::shared_ptr<Material>> matrials;
 
 	public:
-		ModelComponent() : prueba(true) {};
+		ModelComponent();
 		~ModelComponent();
 
 

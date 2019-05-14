@@ -13,11 +13,9 @@ namespace Zynkro
 	class RenderModule : public Module
 	{
 	private:
-		std::vector<ModelComponent> components; // despues pasar a render components para añadir camera y lights 
 
 		//Camera
 		//Skybox
-		Task * task;
  
 	public:
 		RenderModule();
