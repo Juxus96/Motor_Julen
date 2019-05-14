@@ -4,7 +4,7 @@
 
 namespace Zynkro 
 {
-	Task::Task(std::shared_ptr<Module> _module)
+	Task::Task(Module * _module)
 	{
 		module = _module;
 	}

@@ -14,7 +14,7 @@ namespace Zynkro
 	{
 
 	public:
-		RenderTask(std::shared_ptr<RenderModule> parent) : Task(parent) {};
+		RenderTask(RenderModule * parent) : Task(parent) {};
 		~RenderTask();
 
 		void DoTask();

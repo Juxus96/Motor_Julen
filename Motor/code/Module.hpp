@@ -13,7 +13,7 @@ namespace Zynkro
 	class Module
 	{
 	public:
-		std::vector<Component> components;  
+		std::vector<std::shared_ptr<Component>> components;  
 	protected:
 		
 		std::shared_ptr<Task> task;

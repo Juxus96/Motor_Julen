@@ -10,7 +10,7 @@ namespace Zynkro
 	{
 		for (auto& comp : module->components) 
 		{
-			comp.Update();
+			comp->Update();
 		}
 
 		// clear buffers
