@@ -8,13 +8,13 @@ namespace Zynkro
 {
 	class Task
 	{
-	private:
+	protected:
 		std::shared_ptr<Module> module;
 	public:
 
 		Task(std::shared_ptr<Module> module);
 
-		virtual void doTask() = 0;
+		virtual void DoTask() = 0;
 
 
 	private:

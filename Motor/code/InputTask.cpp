@@ -1,14 +1,14 @@
-#include "Input_Task.hpp"
+#include "InputTask.hpp"
 #include "SDL.h"
 #include "Kernel.hpp"
 
 namespace Zynkro
 {
-	Input_Task::~Input_Task()
+	InputTask::~InputTask()
 	{
 		//delete kernel;                   ----------------------------------------------------- BUG / DUDA
 	}
-	void Input_Task::doTask()
+	void InputTask::DoTask()
 	{
 		SDL_Event event;
 

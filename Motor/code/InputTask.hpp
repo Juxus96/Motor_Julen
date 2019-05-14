@@ -7,18 +7,18 @@
 namespace Zynkro
 {
 	class Kernel;
-	class Input_Task : public Task
+	class InputTask : public Task
 	{
 	private:
 		Kernel * kernel;
 	public:
-		Input_Task(Kernel * _kernel) : Task(nullptr) 
+		InputTask(Kernel * _kernel) : Task(nullptr)
 		{
 			kernel = _kernel;
 		};
-		~Input_Task();
+		~InputTask();
 
-		void doTask() override;
+		void DoTask() override;
 
 
 	};

@@ -22,7 +22,7 @@ namespace Zynkro
 		{
 			for(Task* task : tasks)
 			{
-				task->doTask();
+				task->DoTask();
 			}			
 		}
 	}

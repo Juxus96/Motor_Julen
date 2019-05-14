@@ -19,6 +19,7 @@ namespace Zynkro
 		ModelComponent();
 		~ModelComponent();
 
+		void Update() override;
 
 
 	};

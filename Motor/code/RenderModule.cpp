@@ -1,9 +1,10 @@
 #include "RenderModule.hpp"
-
+#include "RenderTask.hpp"
 namespace Zynkro 
 {
 	RenderModule::RenderModule()
 	{
+		task = std::make_shared<RenderTask>(std::make_shared<RenderModule>(this));
 	}
 	RenderModule::~RenderModule()
 	{

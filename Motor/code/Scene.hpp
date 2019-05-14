@@ -6,7 +6,7 @@
 #include <string>
 #include "Entity.hpp"
 #include "Kernel.hpp"
-#include "Input_Task.hpp"
+#include "InputTask.hpp"
 
 
 
@@ -17,7 +17,7 @@ namespace Zynkro
 	{
 	private:
 		Kernel kernel;
-		Input_Task inputTask;
+		InputTask inputTask;
 
 		std::map<std::string, std::shared_ptr<Entity>> entities;
 		std::map<std::string, std::shared_ptr<Module>> modules;

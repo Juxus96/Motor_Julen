@@ -13,7 +13,7 @@ namespace Zynkro
 		Component();
 		~Component();
 
-
+		virtual void Update() = 0;
 
 	};
 

@@ -8,6 +8,9 @@ namespace Zynkro
 	Component::~Component()
 	{
 	}
+	void Component::Update()
+	{
+	}
 }
 
 

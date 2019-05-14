@@ -21,7 +21,7 @@ namespace Zynkro
 		RenderModule();
 		~RenderModule();
 
-		Task * GetTask() { return task; }
+		std::shared_ptr<Task> GetTask() { return task; }
 		void   AddComponent(std::shared_ptr<Entity> entity) override;
 
 	private:
