@@ -2,27 +2,28 @@
 #ifndef WINDOWHEADER
 #define WINDOWHEADER
 #define SDL_MAIN_HANDLED
-#include "SDL.h"
+#include <map>
 #include <string>
 #include "Scene.hpp"
-#include <map>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 namespace Zynkro
 {
 	class Window
 	{
 	private:
-		SDL_Window * window;
-		SDL_GLContext context;
-		std::map<std::string, Scene> scenes;
+		GLFWwindow* window;
+		std::map<std::string, std::shared_ptr<Scene>> scenes;
 
 	public:
 
-		Window(const char* game_name,const int window_width,const int window_height);
+		Window(const char* _gameName, const int _windowWidth, const int _windowHeight);
 		~Window();
 
 		void clear();
 		void display();
+
 
 
 	private:

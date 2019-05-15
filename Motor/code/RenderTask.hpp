@@ -12,19 +12,16 @@ namespace Zynkro
 
 	class RenderTask : public Task
 	{
-
+	private:
+		float counter = 0.0f;
+		std::shared_ptr<RenderModule> module;
 	public:
-		RenderTask(RenderModule * parent) : Task(parent) {};
+		RenderTask(std::shared_ptr<RenderModule> parent) : module(parent) {};
 		~RenderTask();
 
-		void DoTask();
+		void DoTask() override;
 	};
 
-	
-
-	
-
-	
 
 }
 #endif

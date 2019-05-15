@@ -2,6 +2,8 @@
 #ifndef MODELCOMPONENTHEADER
 #define MODELCOMPONENTHEADER
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include "Component.hpp"
 #include "Mesh.hpp"
 #include "Material.hpp"
@@ -13,10 +15,10 @@ namespace Zynkro
 	class ModelComponent : public Component
 	{
 		std::map<std::string, std::shared_ptr<Mesh>>     meshes;
-		std::map<std::string, std::shared_ptr<Material>> matrials;
+		std::map<std::string, std::shared_ptr<Material>> materials;
 
 	public:
-		ModelComponent();
+		ModelComponent(const char* textPath);
 		~ModelComponent();
 
 		void Update() override;

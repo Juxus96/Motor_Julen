@@ -12,6 +12,8 @@ namespace Zynkro
 	class Component;
 	class Entity
 	{
+	public:
+		bool prueba;
 
 	private:
 		std::map<std::string, std::shared_ptr<Component>> components;

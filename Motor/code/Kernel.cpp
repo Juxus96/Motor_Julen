@@ -2,34 +2,27 @@
 
 namespace Zynkro 
 {
-	Kernel::Kernel()
-	{
-		running = true;
-	}
-
 	Kernel::~Kernel()
 	{
+		//delete window;
 	}
 
-	void Kernel::add_task(Task & task)
+	void Kernel::add_task(std::shared_ptr<Task> task)
 	{
-		tasks.push_back(&task);
+		tasks.push_back(task);
 	}
 
 	void Kernel::execute()
 	{
-		while (running)
+		while (!glfwWindowShouldClose(window))
 		{
-			for(Task* task : tasks)
+			for(std::shared_ptr<Task> task : tasks)
 			{
 				task->DoTask();
 			}			
 		}
 	}
-	void Kernel::stop()
-	{
-		running = false;
-	}
+	
 }
 
 

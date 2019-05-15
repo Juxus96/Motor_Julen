@@ -1,52 +1,46 @@
 #include "Window.hpp"
-#include "glad/glad.h"
-#include "OpenGL.hpp"
+#include <iostream>
 
 
 
 namespace Zynkro 
 {
-	Window::Window(const char* game_name, const int window_width,const int window_height)
+	void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
+	Window::Window(const char* _gameName, const int _windowWidth,const int _windowHeight)
 	{
 		#pragma region Sdl and opengl Init
 
-		if (SDL_Init(SDL_INIT_VIDEO) < 0)
-		{
-			SDL_Log("No se ha podido inicializar SDL2.");
-		}
-		else
-		{
-			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-			SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
+		glfwInit();
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-			window = SDL_CreateWindow(
-				game_name,
-				SDL_WINDOWPOS_UNDEFINED,
-				SDL_WINDOWPOS_UNDEFINED,
-				window_width,
-				window_height,
-				SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
-			);
-
-			if (window)
-			{
-				context = SDL_GL_CreateContext(window);
-				if (context)
-					glt::initialize_opengl_extensions();
-			}
-			clear();
-			display();
+		window = glfwCreateWindow(_windowWidth, _windowHeight, _gameName, NULL, NULL);
+		if (window == NULL)
+		{
+			std::cout << "Failed to create GLFW window" << std::endl;
+			glfwTerminate();
 		}
+		glfwMakeContextCurrent(window);
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			std::cout << "Failed to initialize GLAD" << std::endl;
+		}
+
+		glViewport(0, 0, _windowWidth, _windowWidth);
+		glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 		#pragma endregion
-
-		scenes["main"].execute();
+		
+		scenes["main"] = std::make_shared<Scene>(window);
+		scenes["main"]->execute();
 
 	}
 	Window::~Window()
 	{
-		SDL_DestroyWindow(window);
-		SDL_GL_DeleteContext(context);
-		SDL_Quit();
+		glfwTerminate();
+		//delete window;
 	}
 
 	void Window::clear()
@@ -56,8 +50,14 @@ namespace Zynkro
 	}
 	void Window::display()
 	{
-		SDL_GL_SwapWindow(window);
+
 	}
+
+	void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+	{
+		glViewport(0, 0, width, height);
+	}
+
 }
 
 

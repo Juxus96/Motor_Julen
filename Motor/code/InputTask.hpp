@@ -10,9 +10,9 @@ namespace Zynkro
 	class InputTask : public Task
 	{
 	private:
-		Kernel * kernel;
+		std::shared_ptr<Kernel> kernel;
 	public:
-		InputTask(Kernel * _kernel) : Task(nullptr)
+		InputTask(std::shared_ptr<Kernel> _kernel)
 		{
 			kernel = _kernel;
 		};

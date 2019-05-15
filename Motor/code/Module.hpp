@@ -22,6 +22,7 @@ namespace Zynkro
 		Module();
 		~Module();
 
+		virtual std::shared_ptr<Task> GetTask() = 0;
 		virtual void AddComponent(std::shared_ptr<Entity> entity);
 	};
 

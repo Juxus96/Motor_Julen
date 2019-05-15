@@ -7,10 +7,12 @@ namespace Zynkro
 {
 	class Texture
 	{
-
+	public:
+		unsigned int texture;
+		
 
 	public:
-		Texture();
+		Texture(const char* textPath);
 		~Texture();
 
 

@@ -16,14 +16,14 @@ namespace Zynkro
 	class Scene
 	{
 	private:
-		Kernel kernel;
-		InputTask inputTask;
+		std::shared_ptr<Kernel> kernel;
+		std::shared_ptr<InputTask> inputTask;
 
 		std::map<std::string, std::shared_ptr<Entity>> entities;
 		std::map<std::string, std::shared_ptr<Module>> modules;
 
 	public:
-		Scene();
+		Scene(GLFWwindow* _window);
 
 		void execute();
 

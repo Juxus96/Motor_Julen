@@ -12,7 +12,7 @@ namespace Zynkro
 		Module * module;
 	public:
 
-		Task(Module * module);
+		Task();
 
 		virtual void DoTask() = 0;
 

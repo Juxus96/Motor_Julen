@@ -4,9 +4,8 @@
 
 namespace Zynkro 
 {
-	Task::Task(Module * _module)
+	Task::Task()
 	{
-		module = _module;
 	}
 }
 
