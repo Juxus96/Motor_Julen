@@ -1,9 +1,10 @@
 #include "ModelComponent.hpp"
 #include <iostream>
-
+#include <fstream>
+#include <sstream>
 namespace Zynkro
 {
-	const std::string ShaderProgram::vertexShaderSource =
+	/*const std::string ShaderProgram::vertexShaderSource =
 		"#version 330 core\n"
 		"layout(location = 0) in vec3 aPos;"
 		"layout(location = 1) in vec3 aColor;"
@@ -30,10 +31,68 @@ namespace Zynkro
 		"void main()"
 		"{"
 		"	FragColor = texture(ourTexture, TexCoord);"
-		"}";
-	ShaderProgram::ShaderProgram()
+		"}";*/
+	ShaderProgram::ShaderProgram(const char* vertexPath, const char* fragmentPath)
 	{
-		CompileShader(vertexShaderSource, fragmentShaderSource);
+		std::string vertexCode;
+		std::string fragmentCode;
+		std::ifstream vShaderFile;
+		std::ifstream fShaderFile;
+		// ensure ifstream objects can throw exceptions:
+		vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		try
+		{
+			// open files
+			vShaderFile.open(vertexPath);
+			fShaderFile.open(fragmentPath);
+			std::stringstream vShaderStream, fShaderStream;
+			// read file's buffer contents into streams
+			vShaderStream << vShaderFile.rdbuf();
+			fShaderStream << fShaderFile.rdbuf();
+			// close file handlers
+			vShaderFile.close();
+			fShaderFile.close();
+			// convert stream into string
+			vertexCode = vShaderStream.str();
+			fragmentCode = fShaderStream.str();
+		}
+		catch (std::ifstream::failure e)
+		{
+			std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+		}
+		//const char* vShaderCode = vertexCode.c_str();
+		//const char* fShaderCode = fragmentCode.c_str();
+		const char* vShaderCode =
+			"#version 330 core\n"
+			"layout(location = 0) in vec3 aPos;"
+			"layout(location = 1) in vec3 aNormal;"
+			"layout(location = 2) in vec2 aTexCoords;"
+			""
+			"out vec2 TexCoords;"
+			""
+			"uniform mat4 model;"
+			"uniform mat4 view;"
+			"uniform mat4 projection;"
+			""
+			"void main()"
+			"{"
+			"	TexCoords = aTexCoords;"
+			"	gl_Position = projection * view * model * vec4(aPos, 1.0);"
+			"}";
+		const char* fShaderCode =
+			"#version 330 core\n"
+			"out vec4 FragColor;"
+			""
+			"in vec2 TexCoords;"
+			""
+			"uniform sampler2D texture_diffuse1;"
+			""
+			"void main()"
+			"{"
+			"	FragColor = texture(texture_diffuse1, TexCoords);"
+			"}";
+		CompileShader(vShaderCode, fShaderCode);
 	}
 	ShaderProgram::~ShaderProgram()
 	{
@@ -67,11 +126,35 @@ namespace Zynkro
 		glAttachShader(shaderProgram, vertexShader);
 		glAttachShader(shaderProgram, fragmentShader);
 		glLinkProgram(shaderProgram);
-		glUseProgram(shaderProgram);
+		glGetProgramiv(shaderProgram, GL_LINK_STATUS, &succeeded);
+		if (!succeeded)
+		{
+			glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+		}
+
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 
 	}
+	void ShaderProgram::Use()
+	{
+		glUseProgram(shaderProgram);
+
+	}
+	void ShaderProgram::SetBool(const std::string & name, bool value) const
+	{
+		glUniform1i(glGetUniformLocation(shaderProgram, name.c_str()), (int)value);
+	}
+	void ShaderProgram::SetInt(const std::string & name, int value) const
+	{
+		glUniform1i(glGetUniformLocation(shaderProgram, name.c_str()), value);
+	}
+	void ShaderProgram::SetFloat(const std::string & name, float value) const
+	{
+		glUniform1f(glGetUniformLocation(shaderProgram, name.c_str()), value);
+	}
+	
 }
 
 

@@ -16,6 +16,10 @@ namespace Zynkro
 		{
 			comp->Update();
 		}
+		for (auto& comp : module->components)
+		{
+			comp->Draw();
+		}
 
 		// clear buffers
 		// render skybox

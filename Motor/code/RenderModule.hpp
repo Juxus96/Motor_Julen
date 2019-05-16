@@ -16,8 +16,8 @@ namespace Zynkro
 	{
 	public:
 		GLFWwindow* window;
+		std::vector<std::shared_ptr<ModelComponent>> components;
 	private:
-		const char* textPath;
 		//Camera
 		//Skybox
  

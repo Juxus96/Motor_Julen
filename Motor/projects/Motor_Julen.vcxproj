@@ -76,11 +76,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\libraries\glad\include;..\libraries\rapidxml\headers;..\libraries\glfw3\include;..\libraries\cpp-toolkit\headers;..\libraries\image_loader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\libraries\glad\include;..\libraries\rapidxml\headers;..\libraries\glfw3\include;..\libraries\cpp-toolkit\headers;..\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\libraries\glfw3;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\libraries\glfw3;..\libraries\assimp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,7 +128,6 @@
     <ClCompile Include="..\code\Component.cpp" />
     <ClCompile Include="..\code\glad.c" />
     <ClCompile Include="..\code\InputTask.cpp" />
-    <ClCompile Include="..\code\Material.cpp" />
     <ClCompile Include="..\code\Mesh.cpp" />
     <ClCompile Include="..\code\ModelComponent.cpp" />
     <ClCompile Include="..\code\Entity.cpp" />
@@ -141,13 +140,11 @@
     <ClCompile Include="..\code\ShaderProgram.cpp" />
     <ClCompile Include="..\code\stb_image .cpp" />
     <ClCompile Include="..\code\Task.cpp" />
-    <ClCompile Include="..\code\Texture.cpp" />
     <ClCompile Include="..\code\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\code\Component.hpp" />
     <ClInclude Include="..\code\InputTask.hpp" />
-    <ClInclude Include="..\code\Material.hpp" />
     <ClInclude Include="..\code\Mesh.hpp" />
     <ClInclude Include="..\code\ModelComponent.hpp" />
     <ClInclude Include="..\code\Entity.hpp" />
@@ -159,7 +156,6 @@
     <ClInclude Include="..\code\ShaderProgram.hpp" />
     <ClInclude Include="..\code\stb_image.h" />
     <ClInclude Include="..\code\Task.hpp" />
-    <ClInclude Include="..\code\Texture.hpp" />
     <ClInclude Include="..\code\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

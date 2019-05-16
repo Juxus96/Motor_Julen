@@ -9,14 +9,7 @@ namespace Zynkro
 	{
 	public:
 		unsigned int texture;
-		
-
-	public:
-		Texture(const char* textPath);
-		~Texture();
-
-
-
+		std::string type;
 	};
 
 	

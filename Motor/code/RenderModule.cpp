@@ -11,8 +11,10 @@ namespace Zynkro
 	}
 	void RenderModule::AddComponent(std::shared_ptr<Entity> entity) //pasar xml con parametros del model component
 	{
-		textPath = "../assets/textures/container.jpg"; //parsear el x,l para pillar los datos del model
-		std::shared_ptr<ModelComponent> temp = std::make_shared<ModelComponent>(textPath);
+		std::string modelPath = "../assets/nanosuit/nanosuit.obj"; 
+		const char* vShaderPath = "../code/vShader.txt";
+		const char* fShaderPath = "../code/fShader.txt";
+		std::shared_ptr<ModelComponent> temp = std::make_shared<ModelComponent>(modelPath,vShaderPath,fShaderPath);
 		components.push_back(temp);
 		entity->AddComponent("Render", temp);
 	}

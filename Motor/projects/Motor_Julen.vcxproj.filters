@@ -48,12 +48,6 @@
     <ClCompile Include="..\code\ShaderProgram.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\code\Texture.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\code\Material.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\code\Component.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -95,13 +89,7 @@
     <ClInclude Include="..\code\ModelComponent.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\code\Material.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\code\Mesh.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\code\Texture.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\code\ShaderProgram.hpp">

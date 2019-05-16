@@ -9,16 +9,17 @@ namespace Zynkro
 	{
 	public:
 		unsigned int shaderProgram;
-	private:
-		static const std::string vertexShaderSource;
-		static const std::string fragmentShaderSource;
 
 	public:
-		ShaderProgram();
+		ShaderProgram(const char* vertexPath, const char* fragmentPath);
 		~ShaderProgram();
 
 		void CompileShader(const std::string & vertex_shader_code, const std::string & fragment_shader_code);
-
+		void Use();
+		// utility uniform functions
+		void SetBool(const std::string &name, bool value) const;
+		void SetInt(const std::string &name, int value) const;
+		void SetFloat(const std::string &name, float value) const;
 	};
 
 	
