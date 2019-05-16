@@ -1,23 +1,19 @@
 
 #ifndef ENTITYHEADER
 #define ENTITYHEADER
-
+#include "TransformComponent.hpp"
 #include <map>
 #include <string>
-
 namespace Zynkro
 {
 	
-
-	class Component;
 	class Entity
 	{
 	public:
-		bool prueba;
-
-	private:
 		std::map<std::string, std::shared_ptr<Component>> components;
 		std::map<std::string, std::shared_ptr<Entity>>    children;
+
+		std::shared_ptr<TransformComponent> transform;
 
 	public:
 		Entity();

@@ -6,6 +6,8 @@
 #include <GLFW/glfw3.h>
 #include <vector>
 #include "ShaderProgram.hpp"
+#include <memory>
+#include "Entity.hpp"
 
 namespace Zynkro
 {

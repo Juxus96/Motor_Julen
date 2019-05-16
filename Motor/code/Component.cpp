@@ -1,5 +1,5 @@
-#include "ModelComponent.hpp"
-
+#include "Component.hpp"
+#include "Entity.hpp"
 namespace Zynkro 
 {
 	Component::Component()

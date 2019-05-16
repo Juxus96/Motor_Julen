@@ -6,11 +6,6 @@
 #include "Task.hpp"
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
-//class Kernel
-//	set< Task > tasks                                       // El set las ordena por prioridad
-//	add_task()
-//	execute()
-//	stop()
 
 
 namespace Zynkro
@@ -21,7 +16,6 @@ namespace Zynkro
 		GLFWwindow* window;
 	private:
 		std::vector<std::shared_ptr<Task>> tasks;
-		bool running;
 	public:
 		Kernel(GLFWwindow* _window) : window(_window) {};
 		Kernel() = delete;

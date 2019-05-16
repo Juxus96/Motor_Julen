@@ -13,9 +13,6 @@ namespace Zynkro
 	{
 		return std::shared_ptr<Task>();
 	}
-	void Module::AddComponent(std::shared_ptr<Entity> entity)
-	{
-	}
 	
 }
 

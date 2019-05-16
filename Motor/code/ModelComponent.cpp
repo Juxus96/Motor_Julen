@@ -19,8 +19,10 @@ namespace Zynkro
 	}
 	void ModelComponent::Draw()
 	{
-		for (unsigned int i = 0; i < meshes.size(); i++) {
-			shader.Use();
+		
+		for (unsigned int i = 0; i < meshes.size(); i++) 
+		{
+			
 			meshes[i]->Draw(shader);
 		}
 	}
@@ -40,8 +42,6 @@ namespace Zynkro
 	}
 	void ModelComponent::ProcessNode(aiNode * node, const aiScene * scene)
 	{
-		aiMesh *mesh = scene->mMeshes[0];
-		meshes.push_back(ProcessMesh(mesh, scene));
 		// process all the node's meshes (if any)
 		for (unsigned int i = 0; i < node->mNumMeshes; i++)
 		{

@@ -1,4 +1,5 @@
 #include "ModelComponent.hpp"
+#include <glm/gtc/type_ptr.hpp>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -61,9 +62,9 @@ namespace Zynkro
 		{
 			std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
 		}
-		//const char* vShaderCode = vertexCode.c_str();
-		//const char* fShaderCode = fragmentCode.c_str();
-		const char* vShaderCode =
+		const char* vShaderCode = vertexCode.c_str();
+		const char* fShaderCode = fragmentCode.c_str();
+		/*const char* vShaderCode =
 			"#version 330 core\n"
 			"layout(location = 0) in vec3 aPos;"
 			"layout(location = 1) in vec3 aNormal;"
@@ -91,7 +92,7 @@ namespace Zynkro
 			"void main()"
 			"{"
 			"	FragColor = texture(texture_diffuse1, TexCoords);"
-			"}";
+			"}";*/
 		CompileShader(vShaderCode, fShaderCode);
 	}
 	ShaderProgram::~ShaderProgram()
@@ -153,6 +154,10 @@ namespace Zynkro
 	void ShaderProgram::SetFloat(const std::string & name, float value) const
 	{
 		glUniform1f(glGetUniformLocation(shaderProgram, name.c_str()), value);
+	}
+	void ShaderProgram::SetMat4(const std::string & name, glm::mat4 value) const
+	{
+		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, name.c_str()),1,GL_FALSE, glm::value_ptr(value));
 	}
 	
 }

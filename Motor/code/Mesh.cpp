@@ -54,9 +54,9 @@ namespace Zynkro
 			else if (name == "texture_specular")
 				number = std::to_string(specularNr++);
 
-			//shader.SetFloat(("material." + name + number).c_str(), i);
 			glBindTexture(GL_TEXTURE_2D, textures[i].texture);
 		}
+		
 		glActiveTexture(GL_TEXTURE0);
 
 		// draw mesh

@@ -4,7 +4,10 @@ namespace Zynkro
 {
 	RenderModule::RenderModule(GLFWwindow* _window) : window(_window)
 	{
+		glEnable(GL_CULL_FACE);
+		glEnable(GL_DEPTH_TEST);
 		task = std::make_shared<RenderTask>(std::shared_ptr<RenderModule>(this));
+
 	}
 	RenderModule::~RenderModule()
 	{

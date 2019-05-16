@@ -5,6 +5,7 @@
 #include <vector>
 #include "Entity.hpp"
 #include "ModelComponent.hpp"
+#include "Entity.hpp"
 #include "Task.hpp"
 #include "Module.hpp"
 #include <glad/glad.h>
@@ -16,9 +17,10 @@ namespace Zynkro
 	{
 	public:
 		GLFWwindow* window;
+		std::shared_ptr<Entity> camera;
 		std::vector<std::shared_ptr<ModelComponent>> components;
 	private:
-		//Camera
+		
 		//Skybox
  
 	public:
@@ -28,8 +30,8 @@ namespace Zynkro
 
 		std::shared_ptr<Task> GetTask() override { return task; }
 		void AddComponent(std::shared_ptr<Entity> entity) override;
+		void SetCamera(std::shared_ptr<Entity> _camera) { camera = _camera; };
 
-	private:
 
 	};
 

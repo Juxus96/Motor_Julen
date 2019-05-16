@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\libraries\glad\include;..\libraries\rapidxml\headers;..\libraries\glfw3\include;..\libraries\cpp-toolkit\headers;..\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\libraries\glad\include;..\libraries\rapidxml\headers;..\libraries\glfw3\include;..\libraries\cpp-toolkit\headers;..\libraries\assimp\include;..\libraries\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>..\libraries\glfw3;..\libraries\assimp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -125,6 +125,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\code\CameraComponent.cpp" />
+    <ClCompile Include="..\code\CameraModule.cpp" />
+    <ClCompile Include="..\code\CameraTask.cpp" />
     <ClCompile Include="..\code\Component.cpp" />
     <ClCompile Include="..\code\glad.c" />
     <ClCompile Include="..\code\InputTask.cpp" />
@@ -140,9 +143,15 @@
     <ClCompile Include="..\code\ShaderProgram.cpp" />
     <ClCompile Include="..\code\stb_image .cpp" />
     <ClCompile Include="..\code\Task.cpp" />
+    <ClCompile Include="..\code\TransformComponent.cpp" />
+    <ClCompile Include="..\code\TransformModule.cpp" />
+    <ClCompile Include="..\code\TransformTask.cpp" />
     <ClCompile Include="..\code\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\code\CameraComponent.hpp" />
+    <ClInclude Include="..\code\CameraModule.hpp" />
+    <ClInclude Include="..\code\CameraTask.hpp" />
     <ClInclude Include="..\code\Component.hpp" />
     <ClInclude Include="..\code\InputTask.hpp" />
     <ClInclude Include="..\code\Mesh.hpp" />
@@ -156,7 +165,14 @@
     <ClInclude Include="..\code\ShaderProgram.hpp" />
     <ClInclude Include="..\code\stb_image.h" />
     <ClInclude Include="..\code\Task.hpp" />
+    <ClInclude Include="..\code\TransformComponent.hpp" />
+    <ClInclude Include="..\code\TransformModule.hpp" />
+    <ClInclude Include="..\code\TransformTask.hpp" />
     <ClInclude Include="..\code\Window.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\code\fShader.txt" />
+    <Text Include="..\code\vShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

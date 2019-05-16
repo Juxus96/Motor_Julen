@@ -6,7 +6,6 @@
 #include <GLFW/glfw3.h>
 #include "Component.hpp"
 #include "Mesh.hpp"
-#include "Material.hpp"
 #include "stb_image.h"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -20,12 +19,16 @@
 
 namespace Zynkro
 {
+	class Mesh;
 	class ModelComponent : public Component
 	{
-	
-	private:
-		std::vector<std::shared_ptr<Mesh>> meshes;
+	public:
 		ShaderProgram shader;
+		
+	private:
+		
+
+		std::vector<std::shared_ptr<Mesh>> meshes;
 		std::vector<Mesh::Texture> textures_loaded;
 
 		std::string modelPath;
